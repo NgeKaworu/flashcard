@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  flashcard-umi:
+    restart: "always"
+    build:
+      context: ./flashcard-umi
+      dockerfile: docker/Dockerfile
+    image: flashcard-umi
+    container_name: flashcard-umi
+    networks:
+      - frontend
+
+  flashcard-egg:
+    restart: "always"
+    build:
+      context: ./flashcard-egg
+      dockerfile: docker/Dockerfile
+    image: flashcard-egg
+    container_name: flashcard-egg
+    environment:
+      ADDR: ${ADDR:-:80}
+      DBINIT: ${DBINIT:-false}
+      MONGO: ${MONGO:?mongo url is required}
+      DB: ${DB:-flashcard}
+    networks:
+      - backend
+    depends_on:
+      - mongo
+
+networks:
+  backend:
+    name: backend
+    driver: bridge
+  frontend:
+    name: frontend
+    driver: bridge

@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  flashcard-umi-dev:
+    build:
+      context: flashcard-umi
+      dockerfile: docker/Dockerfile.dev
+    image: flashcard-umi:dev
+    container_name: flashcard-umi-dev
+    stdin_open: true
+    tty: true
+    environment:
+      BRANCH: ${BRANCH:-master}
+    networks:
+      - backend
+    ports:
+      - 8002:80
+    volumes:
+      - ~/.ssh:/root/.ssh
+
+  flashcard-egg-dev:
+    build:
+      context: flashcard-egg
+      dockerfile: docker/Dockerfile.dev
+    image: flashcard-egg:dev
+    container_name: flashcard-egg-dev
+    stdin_open: true
+    tty: true
+    environment:
+      BRANCH: ${BRANCH:-master}
+      ADDR: ${ADDR:-:80}
+      DBINIT: ${DBINIT:-false}
+      MONGO: ${MONGO:-mongodb://mongo:27017}
+      DB: ${DB:-flashcard}
+    volumes:
+      - ~/.ssh:/root/.ssh
+    networks:
+      - backend
+    depends_on:
+      - mongo
+
+networks:
+  backend:
+    name: backend
+    driver: bridge
