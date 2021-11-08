@@ -6,7 +6,7 @@ services:
     build:
       context: ./flashcard-umi
       dockerfile: docker/Dockerfile
-    image: flashcard-umi
+    image: ngekaworu/flashcard-umi
     container_name: flashcard-umi
     networks:
       - frontend
@@ -16,7 +16,7 @@ services:
     build:
       context: ./flashcard-egg
       dockerfile: docker/Dockerfile
-    image: flashcard-egg
+    image: ngekaworu/flashcard-egg
     container_name: flashcard-egg
     environment:
       PORT: ${PORT-80}
