@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   flashcard-umi:
-    restart: "always"
+    
     build:
       context: ./flashcard-umi
       dockerfile: docker/Dockerfile
@@ -12,7 +12,7 @@ services:
       - frontend
 
   flashcard-egg:
-    restart: "always"
+    
     build:
       context: ./flashcard-egg
       dockerfile: docker/Dockerfile
