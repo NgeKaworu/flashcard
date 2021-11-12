@@ -1,6 +1,6 @@
 [submodule "flashcard-egg"]
 	path = flashcard-egg
-	url = git@github.com:NgeKaworu/flashcard-egg.git
+	url = git@github.com:yingxv/flashcard-egg.git
 [submodule "flashcard-umi"]
 	path = flashcard-umi
-	url = git@github.com:NgeKaworu/flashcard-umi.git
+	url = git@github.com:yingxv/flashcard-umi.git
