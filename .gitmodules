@@ -1,0 +1,6 @@
+[submodule "flashcard-go"]
+	path = flashcard-go
+	url = git@github.com:yingxv/flashcard-go.git
+[submodule "flashcard-umi"]
+	path = flashcard-umi
+	url = git@github.com:yingxv/flashcard-umi.git
