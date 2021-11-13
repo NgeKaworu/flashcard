@@ -11,13 +11,13 @@ services:
     networks:
       - frontend
 
-  flashcard-egg:
+  flashcard-go:
     
     build:
-      context: ./flashcard-egg
+      context: ./flashcard-go
       dockerfile: docker/Dockerfile
-    image: ngekaworu/flashcard-egg
-    container_name: flashcard-egg
+    image: ngekaworu/flashcard-go
+    container_name: flashcard-go
     environment:
       PORT: ${PORT-80}
       DBINIT: ${DBINIT:-false}
