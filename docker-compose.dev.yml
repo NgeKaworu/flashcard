@@ -32,6 +32,7 @@ services:
       DBINIT: ${DBINIT:-false}
       MONGO: ${MONGO:-mongodb://mongo:27017}
       DB: ${DB:-flashcard}
+      UC: ${UC:-http://user-center-go}
     volumes:
       - ~/.ssh:/root/.ssh
     networks:
