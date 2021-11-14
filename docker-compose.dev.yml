@@ -28,7 +28,7 @@ services:
     tty: true
     environment:
       BRANCH: ${BRANCH:-dev}
-      PORT: ${PORT-80}
+      ADDR: ${ADDR:-:80}
       DBINIT: ${DBINIT:-false}
       MONGO: ${MONGO:-mongodb://mongo:27017}
       DB: ${DB:-flashcard}

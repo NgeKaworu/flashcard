@@ -19,10 +19,11 @@ services:
     image: ngekaworu/flashcard-go
     container_name: flashcard-go
     environment:
-      PORT: ${PORT-80}
+      ADDR: ${ADDR:-:80}
       DBINIT: ${DBINIT:-false}
-      MONGO: ${MONGO:?mongo url is required}
+      MONGO: ${MONGO:-mongodb://mongo:27017}
       DB: ${DB:-flashcard}
+      UC: ${UC:-http://user-center-go}
     networks:
       - backend
     depends_on:
