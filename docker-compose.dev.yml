@@ -31,6 +31,7 @@ services:
       ADDR: ${ADDR:-:80}
       DBINIT: ${DBINIT:-false}
       MONGO: ${MONGO:-mongodb://mongo:27017}
+      REDIS: ${REDIS:?redis url is required}
       DB: ${DB:-flashcard}
       UC: ${UC:-http://user-center-go}
     volumes:
@@ -39,6 +40,7 @@ services:
       - backend
     depends_on:
       - mongo
+      - redis
 
 networks:
   backend:

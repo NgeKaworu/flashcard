@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   flashcard-umi:
-    
+    restart: "always"
     build:
       context: ./flashcard-umi
       dockerfile: docker/Dockerfile
@@ -12,7 +12,7 @@ services:
       - frontend
 
   flashcard-go:
-    
+    restart: "always"
     build:
       context: ./flashcard-go
       dockerfile: docker/Dockerfile
@@ -22,12 +22,14 @@ services:
       ADDR: ${ADDR:-:80}
       DBINIT: ${DBINIT:-false}
       MONGO: ${MONGO:-mongodb://mongo:27017}
+      REDIS: ${REDIS:?redis url is required}
       DB: ${DB:-flashcard}
       UC: ${UC:-http://user-center-go}
     networks:
       - backend
     depends_on:
       - mongo
+      - redis
 
 networks:
   backend:
